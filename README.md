@@ -8,7 +8,7 @@
 
 GitHub Pages:
 
-https://mukahira.github.io/handwritten-alphabet-recognition/
+https://hmukasa.github.io/handwritten-alphabet-recognition/
 
 ## 使い方
 
