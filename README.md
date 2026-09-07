@@ -4,12 +4,6 @@
 
 推論はブラウザ内で行うため、Flask などのサーバーは必要ありません。学習済み PyTorch モデルを ONNX 形式に変換し、ONNX Runtime Web を用いて実行しています。
 
-## デモ
-
-GitHub Pages:
-
-https://mukahira.github.io/handwritten-alphabet-recognition/
-
 ## 使い方
 
 1. キャンバスに A〜Z の英字を1文字書きます。
