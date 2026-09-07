@@ -122,14 +122,17 @@ button:disabled {
 }
 
 .hint,
-.status,
-.metric {
+.status {
   color: #687386;
 }
 
-.metric {
-  margin: 6px 0;
-  font-size: 0.92rem;
+.status.error {
+  color: #b42318;
+  font-weight: 700;
+}
+
+.status.ok {
+  color: #26734d;
 }
 
 .prediction-card {

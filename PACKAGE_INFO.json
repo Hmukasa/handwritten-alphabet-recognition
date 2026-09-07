@@ -1,0 +1,7 @@
+{
+  "mode": "GitHub Pages static app",
+  "browser_inference": "ONNX Runtime Web",
+  "model": "ResNet",
+  "classes": 26,
+  "required_generated_file": "models/resnet_emnist_letters.onnx"
+}

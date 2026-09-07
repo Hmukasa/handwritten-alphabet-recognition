@@ -2,3 +2,11 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# 学習時のPyTorch checkpointは公開しない
+resnet_best.pt
+*.pt
+
+# OS/editor
+.vscode/
+.idea/

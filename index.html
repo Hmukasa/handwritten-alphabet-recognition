@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>手書きアルファベット認識</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="page">
     <header class="hero">
-      <p class="eyebrow">EMNIST Letters × PyTorch</p>
+      <p class="eyebrow">EMNIST Letters × PyTorch ResNet</p>
       <h1>手書きアルファベット認識</h1>
       <p class="lead">
-        下の枠に A〜Z を1文字書いてください。学習済みAIが文字を推測します。
+        下の枠に A〜Z を1文字書いてください。学習済みResNetが文字を推測します。
       </p>
     </header>
 
@@ -20,20 +20,14 @@
       <div class="panel draw-panel">
         <div class="panel-title-row">
           <h2>1. 文字を書く</h2>
-          <span class="badge">
-            {% if model_info.model_type %}
-              {{ model_info.model_type }}
-            {% else %}
-              MODEL NOT FOUND
-            {% endif %}
-          </span>
+          <span class="badge">ResNet</span>
         </div>
 
         <canvas id="drawCanvas" width="320" height="320"
                 aria-label="手書き入力キャンバス"></canvas>
 
         <div class="buttons">
-          <button id="predictButton" class="primary">認識する</button>
+          <button id="predictButton" class="primary" disabled>認識する</button>
           <button id="clearButton" class="secondary">消去</button>
         </div>
 
@@ -42,7 +36,7 @@
 
       <div class="panel result-panel">
         <h2>2. AI の予測</h2>
-        <div id="status" class="status">文字を書いてください</div>
+        <div id="status" class="status">モデルを読み込み中...</div>
 
         <div class="prediction-card">
           <div>
@@ -66,10 +60,15 @@
     </section>
 
     <footer>
-      Python / Flask / PyTorch / EMNIST Letters
+      EMNIST Letters / PyTorch / ONNX Runtime Web
     </footer>
   </main>
 
-  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <!--
+    ResNetはブラウザ内でONNX Runtime Webを使って推論します。
+    Flask/Pythonサーバーは公開時には不要です。
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/ort.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
