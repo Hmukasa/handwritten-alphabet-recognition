@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>手書きアルファベット認識</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">EMNIST Letters × PyTorch</p>
+      <h1>手書きアルファベット認識</h1>
+      <p class="lead">
+        下の枠に A〜Z を1文字書いてください。学習済みAIが文字を推測します。
+      </p>
+    </header>
+
+    <section class="workspace">
+      <div class="panel draw-panel">
+        <div class="panel-title-row">
+          <h2>1. 文字を書く</h2>
+          <span class="badge">
+            {% if model_info.model_type %}
+              {{ model_info.model_type }}
+            {% else %}
+              MODEL NOT FOUND
+            {% endif %}
+          </span>
+        </div>
+
+        <canvas id="drawCanvas" width="320" height="320"
+                aria-label="手書き入力キャンバス"></canvas>
+
+        <div class="buttons">
+          <button id="predictButton" class="primary">認識する</button>
+          <button id="clearButton" class="secondary">消去</button>
+        </div>
+
+        <p class="hint">マウス・タッチ・ペン入力に対応しています。</p>
+      </div>
+
+      <div class="panel result-panel">
+        <h2>2. AI の予測</h2>
+        <div id="status" class="status">文字を書いてください</div>
+
+        <div class="prediction-card">
+          <div>
+            <span class="small-label">予測文字</span>
+            <div id="prediction" class="prediction">?</div>
+          </div>
+          <div>
+            <span class="small-label">信頼度</span>
+            <div id="confidence" class="confidence">--%</div>
+          </div>
+        </div>
+
+        <h3>上位5候補</h3>
+        <div id="top5" class="top5"></div>
+      </div>
+    </section>
+
+    <section class="panel probabilities-panel">
+      <h2>A〜Z の予測確率</h2>
+      <div id="probabilityGrid" class="probability-grid"></div>
+    </section>
+
+    <footer>
+      Python / Flask / PyTorch / EMNIST Letters
+    </footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
