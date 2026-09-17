@@ -53,20 +53,20 @@ Fully Connected
 
 ブラウザ上で入力された文字に対して、次の前処理を行います。
 
-* 描画部分の検出
-* アスペクト比を保った縮小
-* 28×28画像の中央への配置
-* 学習時と同じ正規化
+- 描画部分の検出
+- アスペクト比を保った縮小
+- 28×28画像の中央への配置
+- 学習時と同じ正規化
 
 入力された文字は、描画領域を切り出して20×20以内に縮小し、28×28の画像中央に配置してからモデルへ入力します。
 
 ## 学習結果
 
-| Metric              | Result |
-| ------------------- | -----: |
+| Metric | Result |
+| --- | ---: |
 | Validation Accuracy | 96.15% |
-| Test Accuracy       | 95.77% |
-| Macro F1            | 95.77% |
+| Test Accuracy | 95.77% |
+| Macro F1 | 95.77% |
 
 詳細は `training_results.md` に記載しています。
 
@@ -88,13 +88,13 @@ Fully Connected
 
 主なファイルの役割は次のとおりです。
 
-* `index.html`: Webページの構成
-* `style.css`: Webページのデザイン
-* `script.js`: 描画処理、前処理、文字認識
-* `model.py`: ResNetの定義
-* `export_onnx.py`: PyTorchモデルをONNX形式へ変換
-* `models/resnet_emnist_letters.onnx`: Webアプリで使用する学習済みモデル
-* `training_results.md`: 学習結果
+- `index.html`: Webページの構成
+- `style.css`: Webページのデザイン
+- `script.js`: 描画処理、前処理、文字認識
+- `model.py`: ResNetの定義
+- `export_onnx.py`: PyTorchモデルをONNX形式へ変換
+- `models/resnet_emnist_letters.onnx`: Webアプリで使用する学習済みモデル
+- `training_results.md`: 学習結果
 
 ## ローカルで実行する
 
@@ -181,14 +181,16 @@ A〜Zの予測確率
 認識結果を表示
 ```
 
+文字を書いている途中では認識処理を行わず、「認識する」ボタンを押したときに認識を実行します。
+
 ## 使用技術
 
-* EMNIST Letters
-* PyTorch
-* ResNet
-* ONNX
-* ONNX Runtime Web
-* HTML
-* CSS
-* JavaScript
-* GitHub Pages
+- EMNIST Letters
+- PyTorch
+- ResNet
+- ONNX
+- ONNX Runtime Web
+- HTML
+- CSS
+- JavaScript
+- GitHub Pages
