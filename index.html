@@ -6,11 +6,14 @@
   <title>手書きアルファベット認識</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main class="page">
     <header class="hero">
       <p class="eyebrow">EMNIST Letters × PyTorch ResNet</p>
+
       <h1>手書きアルファベット認識</h1>
+
       <p class="lead">
         下の枠に A〜Z を1文字書いてください。学習済みResNetが文字を推測します。
       </p>
@@ -23,26 +26,41 @@
           <span class="badge">ResNet</span>
         </div>
 
-        <canvas id="drawCanvas" width="320" height="320"
-                aria-label="手書き入力キャンバス"></canvas>
+        <canvas
+          id="drawCanvas"
+          width="320"
+          height="320"
+          aria-label="手書き入力キャンバス">
+        </canvas>
 
         <div class="buttons">
-          <button id="predictButton" class="primary" disabled>認識する</button>
-          <button id="clearButton" class="secondary">消去</button>
+          <button id="predictButton" class="primary" disabled>
+            認識する
+          </button>
+
+          <button id="clearButton" class="secondary">
+            消去
+          </button>
         </div>
 
-        <p class="hint">マウス・タッチ・ペン入力に対応しています。</p>
+        <p class="hint">
+          マウス・タッチ・ペン入力に対応しています。
+        </p>
       </div>
 
       <div class="panel result-panel">
         <h2>2. AI の予測</h2>
-        <div id="status" class="status">モデルを読み込み中...</div>
+
+        <div id="status" class="status">
+          モデルを読み込み中...
+        </div>
 
         <div class="prediction-card">
           <div>
             <span class="small-label">予測文字</span>
             <div id="prediction" class="prediction">?</div>
           </div>
+
           <div>
             <span class="small-label">信頼度</span>
             <div id="confidence" class="confidence">--%</div>
@@ -64,10 +82,6 @@
     </footer>
   </main>
 
-  <!--
-    ResNetはブラウザ内でONNX Runtime Webを使って推論します。
-    Flask/Pythonサーバーは公開時には不要です。
-  -->
   <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/ort.min.js"></script>
   <script src="script.js"></script>
 </body>
