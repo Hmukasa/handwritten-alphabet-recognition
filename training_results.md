@@ -15,8 +15,6 @@
 
 ## 注記
 
-Best epoch は validation accuracy により選択し、
-その後に公式 test set で最終評価を行った。
+Best epoch は validation accuracy により選択し、その後に公式 test set で最終評価を行った。
 
-これらの評価値は研究・記録用であり、
-Webアプリの画面には表示しない。
+
